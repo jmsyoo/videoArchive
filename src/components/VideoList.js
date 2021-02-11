@@ -29,10 +29,10 @@ export default function VideoList({ videos }) {
 												<Col md={4} sm={12} xs={12}>
 													<Card className={'videoDescrip'}>
 														<Card.Header>
-															<Card.Title className={'text-center videoTitle'}>
+															<Card.Title className={'videoTitle'}>
 																{item.snippet.title}
 															</Card.Title>
-															<Card.Title className={'videoTitle'}>
+															<Card.Title className={'channelTitle'}>
 																{item.snippet.channelTitle}
 															</Card.Title>
 														</Card.Header>
@@ -48,6 +48,7 @@ export default function VideoList({ videos }) {
 														</Card.Body>
 														<Card.Footer>
 															<form>
+																<input type="text" value={item.id.videoId} />
 																<Button
 																	className={'addBtn'}
 																	type="sumbit"
