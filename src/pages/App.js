@@ -17,15 +17,16 @@ export default function App(props) {
 	// var secondKey = 'AIzaSyBvXnUrTm-SXh4ZVQfB8EhFeFi3-lbVCwg';
 
 	const apiKeys = {
-		opt1: 'IzaSyBFggNrF6KZY92a1JOR0ZwrjpTtytWMy3Y',
-		opt2: 'AIzaSyBvXnUrTm-SXh4ZVQfB8EhFeFi3-lbVCwg'
+		opt1: 'AIzaSyBecvdGyXMfpfhARBOmTIoTzsDvEuNTxgg',
+		opt2: 'AIzaSyBvXnUrTm-SXh4ZVQfB8EhFeFi3-lbVCwg',
+		opt3: 'AIzaSyDjUyOpSIA0hOhohEFvuOAs8JPDtwu9FUg'
 	};
 	const [query, updateQuery] = useState({
 		q: '', // Search
 		part: 'snippet',
-		key: apiKeys.opt2,
+		key: apiKeys.opt3,
 		type: 'video',
-		maxResults: 2
+		maxResults: 6
 	});
 
 	const [searchUrl, updateSearchUrl] = useState('');
@@ -46,9 +47,9 @@ export default function App(props) {
 					updateQuery({
 						q: '', // Search
 						part: 'snippet',
-						key: apiKeys.opt2,
+						key: apiKeys.opt3,
 						type: 'video',
-						maxResults: 2
+						maxResults: 6
 					});
 				}
 			}
@@ -70,7 +71,7 @@ export default function App(props) {
 	};
 
 	return (
-		<Container fluid className="AppPage">
+		<>
 			<div className={'search'}>
 				<form onSubmit={handleSubmit}>
 					<InputGroup>
@@ -103,6 +104,6 @@ export default function App(props) {
 					)}
 				</Col>
 			</Row> */}
-		</Container>
+		</>
 	);
 }
