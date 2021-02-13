@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Row, Col, Button, Card } from 'react-bootstrap';
 import YouTube from 'react-youtube';
 
@@ -8,8 +8,13 @@ export default function VideoList({ videos }) {
 	const channelTitle = useRef([]);
 	const description = useRef([]);
 
+	console.log(title.current);
+
+	const [message, setMessage] = useState('');
+
 	const handleSubmit = async e => {
 		e.preventDefault();
+
 		const index = e.currentTarget.id;
 
 		const idValue = id.current[index].value;
@@ -33,6 +38,9 @@ export default function VideoList({ videos }) {
 		} catch (error) {
 			console.error(error);
 		}
+	};
+	const handleClick = e => {
+		setMessage('Added to My Archive');
 	};
 
 	return (
@@ -96,10 +104,13 @@ export default function VideoList({ videos }) {
 																	ref={e => (description.current[index] = e)}
 																	className={'hide'}
 																/>
+																<span>{message}</span>
 																<Button
 																	className={'addBtn'}
 																	type="sumbit"
 																	variant="success"
+																	onClick={handleClick}
+																	value={index}
 																>
 																	Add to Archive
 																</Button>

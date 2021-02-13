@@ -6,16 +6,16 @@ import Contact from '../pages/Contact';
 import MyVideo from '../pages/MyVideos';
 
 const routes = [
-	{
-		Component: Home,
-		key: 'Home',
-		path: '/home'
-	},
-	{
-		Component: Contact,
-		key: 'Contact',
-		path: '/contact'
-	},
+	// {
+	// 	Component: Home,
+	// 	key: 'Home',
+	// 	path: '/home'
+	// },
+	// {
+	// 	Component: Contact,
+	// 	key: 'Contact',
+	// 	path: '/contact'
+	// },
 	{
 		Component: MyVideo,
 		key: 'MyVideo',

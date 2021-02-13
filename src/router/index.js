@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import NavBar from '../components/NavBar';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ const AppRouter = props => {
 			<Container fluid className="AppPage">
 				<div className={'logoDiv'}>
 					<img src={logoImgUrl} style={{ height: '70px' }} />
+					<h1> Archice</h1>
 				</div>
 				<Switch>
 					{routes.map(({ Component, key, path }) => (

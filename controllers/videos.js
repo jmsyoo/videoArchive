@@ -32,6 +32,48 @@ myVideoRouter.get('/', async (req, res) => {
     }
 })
 
+/* Show */
+myVideoRouter.get('/:id', async (req, res) => {
+    try {
+        const foundVideo = await MyVideo.findById(req.params.id);
+        await foundVideo.execPopulate('comments')
+        res
+            .status(200)
+            .json(foundVideo)
+    }catch(error) {
+        res
+            .status(400)
+            .json(error)
+    }
+})
+
+/* Delete */
+myVideoRouter.delete('/:id', async (req, res) => {
+    try{
+        const foundVideo = await MyVideo.findByIdAndDelete(req.params.id);
+        res
+            .status(200)
+            .json(foundVideo)
+    }catch(error) {
+        res
+            .status(400)
+            .json(error)
+    }
+})
+
+/* Update */
+myVideoRouter.put('./id', async (req, res) => {
+    try{
+        const foundVideo = await MyVideo.findByIdAndDelete(req.param.id, req.body, {new: true})
+        res
+            .status(200)
+            .json(foundVideo);
+    } catch(error) {
+        res
+            .status(400)
+            .json(error)
+    }
+})
 
 
 module.exports = myVideoRouter;

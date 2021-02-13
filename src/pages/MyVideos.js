@@ -1,15 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import YouTube from 'react-youtube';
-import {
-	Container,
-	Row,
-	Col,
-	InputGroup,
-	FormControl,
-	Button,
-	Card
-} from 'react-bootstrap';
+import { Row, Col, Button, Card } from 'react-bootstrap';
 
 export default function MyVideo(props) {
 	const [videos, setVideo] = useState([]);
@@ -28,6 +20,7 @@ export default function MyVideo(props) {
 
 	return (
 		<>
+			<h2>{props.test}</h2>
 			{Object.keys(videos).length
 				? videos.map((item, index) => {
 						return (

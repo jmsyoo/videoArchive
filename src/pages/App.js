@@ -13,7 +13,7 @@ import {
 
 export default function App(props) {
 	var baseUrl = 'https://www.googleapis.com/youtube/v3/search?';
-	var firstKey = 'IzaSyBFggNrF6KZY92a1JOR0ZwrjpTtytWMy3Y';
+	// var firstKey = 'IzaSyBFggNrF6KZY92a1JOR0ZwrjpTtytWMy3Y';
 	// var secondKey = 'AIzaSyBvXnUrTm-SXh4ZVQfB8EhFeFi3-lbVCwg';
 
 	const apiKeys = {
@@ -24,9 +24,9 @@ export default function App(props) {
 	const [query, updateQuery] = useState({
 		q: '', // Search
 		part: 'snippet',
-		key: apiKeys.opt3,
+		key: apiKeys.opt1,
 		type: 'video',
-		maxResults: 6
+		maxResults: 2
 	});
 
 	const [searchUrl, updateSearchUrl] = useState('');
@@ -47,9 +47,9 @@ export default function App(props) {
 					updateQuery({
 						q: '', // Search
 						part: 'snippet',
-						key: apiKeys.opt3,
+						key: apiKeys.opt1,
 						type: 'video',
-						maxResults: 6
+						maxResults: 2
 					});
 				}
 			}
@@ -91,7 +91,6 @@ export default function App(props) {
 				</form>
 			</div>
 			<VideoList videos={videos} />
-
 			{/* <Row>
 				<Col md={12} xs={12}>
 					{Object.keys(videos).length ? (

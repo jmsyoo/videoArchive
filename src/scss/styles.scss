@@ -40,11 +40,16 @@ body {
   padding:1rem;
   background-color: var(--backgroundColor);
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   .logoDiv{
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    h1{
+      font-size: 4.3rem;
+      font-weight: 600;
+    }
     img{
       margin: auto;
       margin:2rem;
