@@ -5,8 +5,8 @@ const videoSchema = new Schema({
     title: String,
     channelTitle: String,
     description: String,
-    rating: {type:Number, default:0, max:5},
-    comment: [{type:Schema.Types.ObjectId, ref:'Comment'}]
+    category:String,
+    comments: [{type:Schema.Types.ObjectId, ref:'Comment'}]
 },{
     timestamps: true
 })

@@ -7,16 +7,12 @@ export default function VideoList({ videos }) {
 	const title = useRef([]);
 	const channelTitle = useRef([]);
 	const description = useRef([]);
-
-	console.log(title.current);
-
-	const [message, setMessage] = useState('');
+	const archived = useRef([]);
 
 	const handleSubmit = async e => {
 		e.preventDefault();
 
 		const index = e.currentTarget.id;
-
 		const idValue = id.current[index].value;
 		const titleValue = title.current[index].value;
 		const channelTitleValue = channelTitle.current[index].value;
@@ -40,92 +36,102 @@ export default function VideoList({ videos }) {
 		}
 	};
 	const handleClick = e => {
-		setMessage('Added to My Archive');
+		const index = e.currentTarget.value;
+		archived.current[index].innerText = 'Added to my archive';
+	};
+
+	const checkWordsLength = (words, type) => {
+		let reducedWords = '';
+		const titleLength = 21;
+		const descripLength = 70;
+
+		if (type == 'title') {
+			reducedWords = words.substring(0, titleLength);
+		} else if ((type = 'descrip')) {
+			reducedWords = words.substring(0, descripLength);
+		}
+		return reducedWords;
 	};
 
 	return (
 		<>
-			{Object.keys(videos).length > 0
-				? videos[0].items.map((item, index) => {
-						return (
-							<Row key={`${item.id.videoId}${index}`}>
-								<Col md={12}>
+			<Row>
+				{Object.keys(videos).length > 0
+					? videos[0].items.map((item, index) => {
+							return (
+								<Col
+									className={'resultCol'}
+									key={`${item.id.videoId}${index}`}
+									md={3}
+									sm={4}
+									xs={12}
+								>
 									<Card>
+										<Card.Header>
+											<Card.Title className={'videoTitle'}>
+												{checkWordsLength(item.snippet.title, 'title')}
+											</Card.Title>
+											<Card.Title className={'channelTitle'}>
+												{item.snippet.channelTitle}
+											</Card.Title>
+										</Card.Header>
 										<Card.Body>
-											<Row>
-												<Col md={8} sm={12} xs={12}>
-													<div className={'videowrapper'}>
-														<YouTube videoId={item.id.videoId} />
-													</div>
-												</Col>
-												<Col md={4} sm={12} xs={12}>
-													<Card className={'videoDescrip'}>
-														<Card.Header>
-															<Card.Title className={'videoTitle'}>
-																{item.snippet.title}
-															</Card.Title>
-															<Card.Title className={'channelTitle'}>
-																{item.snippet.channelTitle}
-															</Card.Title>
-														</Card.Header>
-														<Card.Body className={''}>
-															<Card.Body>
-																<Card.Text>
-																	{item.snippet.description}
-																</Card.Text>
-																<small>
-																	Video Date: {item.snippet.publishTime}
-																</small>
-															</Card.Body>
-														</Card.Body>
-														<Card.Footer>
-															<form onSubmit={handleSubmit} id={index}>
-																<input
-																	type="text"
-																	value={item.id.videoId}
-																	ref={e => (id.current[index] = e)}
-																	className={'hide'}
-																/>
-																<input
-																	type="text"
-																	value={item.snippet.title}
-																	ref={e => (title.current[index] = e)}
-																	className={'hide'}
-																/>
-																<input
-																	type="text"
-																	value={item.snippet.channelTitle}
-																	ref={e => (channelTitle.current[index] = e)}
-																	className={'hide'}
-																/>
-																<input
-																	type="text"
-																	value={item.snippet.description}
-																	ref={e => (description.current[index] = e)}
-																	className={'hide'}
-																/>
-																<span>{message}</span>
-																<Button
-																	className={'addBtn'}
-																	type="sumbit"
-																	variant="success"
-																	onClick={handleClick}
-																	value={index}
-																>
-																	Add to Archive
-																</Button>
-															</form>
-														</Card.Footer>
-													</Card>
-												</Col>
-											</Row>
+											<div className={'videowrapper'}>
+												<YouTube videoId={item.id.videoId} />
+											</div>
+											<Card.Text>
+												{checkWordsLength(item.snippet.description, 'descrip')}
+											</Card.Text>
+											<small>Video Date: {item.snippet.publishTime}</small>
 										</Card.Body>
+										<Card.Footer>
+											<form onSubmit={handleSubmit} id={index}>
+												<input
+													type="text"
+													value={item.id.videoId}
+													ref={e => (id.current[index] = e)}
+													className={'hide'}
+												/>
+												<input
+													type="text"
+													value={item.snippet.title}
+													ref={e => (title.current[index] = e)}
+													className={'hide'}
+												/>
+												<input
+													type="text"
+													value={item.snippet.channelTitle}
+													ref={e => (channelTitle.current[index] = e)}
+													className={'hide'}
+												/>
+												<input
+													type="text"
+													value={item.snippet.description}
+													ref={e => (description.current[index] = e)}
+													className={'hide'}
+												/>
+												{/* <span>{message}</span> */}
+												<span
+													className={'text-danger archivedMessage'}
+													ref={e => (archived.current[index] = e)}
+												></span>
+												<Button
+													className={'addBtn'}
+													type="sumbit"
+													variant="success"
+													onClick={handleClick}
+													value={index}
+												>
+													Add to Archive
+												</Button>
+											</form>
+										</Card.Footer>
 									</Card>
 								</Col>
-							</Row>
-						);
-				  })
-				: ''}
+							);
+					  })
+					: ''}
+			</Row>
 		</>
 	);
 }

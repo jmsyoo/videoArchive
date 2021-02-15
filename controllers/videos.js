@@ -36,6 +36,7 @@ myVideoRouter.get('/', async (req, res) => {
 myVideoRouter.get('/:id', async (req, res) => {
     try {
         const foundVideo = await MyVideo.findById(req.params.id);
+        console.log(foundVideo)
         await foundVideo.execPopulate('comments')
         res
             .status(200)

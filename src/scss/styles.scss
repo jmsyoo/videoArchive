@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 @import "reset";
 @import "grid";
 :root {
@@ -12,16 +14,29 @@ body {
   font-size: 16px;
   background-color: var(--backgroundColor);
 }
+p{
+  font-size: 1.1rem;
+}
 
 .NavBar {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 5vh;
+  height: 7vh;
   font-size: 1.3rem;
   font-weight: 600;
-  background-color: #f0f0f0;
+  background-color: #fff;
+  a{
+    color:rgb(31, 32, 32);
+  font-size: 1.7rem;
+  }
+  
+}
+#webTitle{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 5rem;
 }
 
 .HomePage {
@@ -35,12 +50,102 @@ body {
 .ContactPage{
 
 }
-
+.MyVideo {
+  .myVideoCol{
+    margin-bottom: 2rem;
+  }
+  .card{
+    button{
+      float: right;
+    }
+    .card-footer {
+      .delVideoBtn{
+        float: left;
+      }
+    }
+  }
+}
+.VideoPost{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3%;
+  .showVideoDiv{
+    width: 65%;
+    height: 70%;
+    .card{
+      p{
+        font-size: 1.2rem;
+      }
+      .card-title{
+        font-size: 1.5rem;
+      }
+      .card-body{       
+        ul{
+          overflow-y: auto;
+          li{
+            padding: 1%;;
+            margin: 1rem;
+            background-color: rgba(180, 184, 187, 0.35);
+            p{
+              margin-bottom: 0.5rem;
+              font-size: 1.2rem;
+              .name{
+                font-size: 1.4rem;
+              }
+              .cmDelBtn{
+                float: right;
+              }
+            }
+            small{
+              font-size: 1rem;
+            }
+          }
+        }
+        .commentTitle{
+          text-align: center;
+        }
+        
+      }
+      .card-footer{
+        .commentForm{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 1%;
+          input{
+            margin:1%;
+            width:80%;
+            height: 3rem;
+            font-size: 1.3rem;
+          }
+        }
+        button{
+          float: right;
+          // height: 70%;
+          margin-top: 5%;
+          font-size: 1.3rem;
+          vertical-align: middle;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
 .AppPage {
   padding:1rem;
   background-color: var(--backgroundColor);
   width: 100vw;
   height: 100%;
+  .resultCol {
+    margin-bottom: 2rem;
+  }
+
   .logoDiv{
     width: 100%;
     display: flex;
@@ -54,10 +159,6 @@ body {
       margin: auto;
       margin:2rem;
     }
-  }
-
-  .row{
-    margin-bottom: 5%;
   }
   .search{
     margin: auto;
@@ -83,6 +184,11 @@ body {
           border: 1px solid darkgrey;
           font-size: 1.3rem;
           border-radius: 0.3rem;
+        }
+        @media screen and (max-width:1840px){
+          input{
+            width: 70%;
+          }
         }
         @media screen and (max-width:1440px){
           input{
@@ -111,6 +217,7 @@ body {
     }
   }
   .card{
+    // padding:3rem;
     .videowrapper {
       float: none;
       clear: both;
@@ -151,4 +258,13 @@ body {
       display: none;
     }
   }
+  .card-footer{
+    form{
+      .archivedMessage {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+    }
+  }
 }
+

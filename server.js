@@ -24,6 +24,7 @@ if (process.env.NODE_ENV !== 'development'){
 
 /* Controller Goes Here Remove the tes*/
 app.use('/api/videos', require('./controllers/videos'))
+app.use('/api/comments', require('./controllers/comments'))
 /* Controller Ends here */
 //LISTENER
 

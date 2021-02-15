@@ -1,20 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import VideoList from '../components/VideoList';
-import YouTube from 'react-youtube';
-import {
-	Container,
-	Row,
-	Col,
-	InputGroup,
-	FormControl,
-	Button,
-	Card
-} from 'react-bootstrap';
+import { InputGroup, Button } from 'react-bootstrap';
 
 export default function App(props) {
 	var baseUrl = 'https://www.googleapis.com/youtube/v3/search?';
-	// var firstKey = 'IzaSyBFggNrF6KZY92a1JOR0ZwrjpTtytWMy3Y';
-	// var secondKey = 'AIzaSyBvXnUrTm-SXh4ZVQfB8EhFeFi3-lbVCwg';
 
 	const apiKeys = {
 		opt1: 'AIzaSyBecvdGyXMfpfhARBOmTIoTzsDvEuNTxgg',
@@ -26,7 +15,7 @@ export default function App(props) {
 		part: 'snippet',
 		key: apiKeys.opt1,
 		type: 'video',
-		maxResults: 2
+		maxResults: 8
 	});
 
 	const [searchUrl, updateSearchUrl] = useState('');
@@ -49,7 +38,7 @@ export default function App(props) {
 						part: 'snippet',
 						key: apiKeys.opt1,
 						type: 'video',
-						maxResults: 2
+						maxResults: 8
 					});
 				}
 			}
@@ -91,18 +80,6 @@ export default function App(props) {
 				</form>
 			</div>
 			<VideoList videos={videos} />
-			{/* <Row>
-				<Col md={12} xs={12}>
-					{Object.keys(videos).length ? (
-						<Card>
-							<h2>{videos[0].items[0].snippet.title}</h2>
-							<img src={videos[0].items[0].snippet.thumbnails.high.url} />
-						<Card/>
-					) : (
-						'no'
-					)}
-				</Col>
-			</Row> */}
 		</>
 	);
 }

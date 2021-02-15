@@ -12,7 +12,7 @@ const AppRouter = props => {
 			<Container fluid className="AppPage">
 				<div className={'logoDiv'}>
 					<img src={logoImgUrl} style={{ height: '70px' }} />
-					<h1> Archice</h1>
+					<h1 id="webTitle"> Archive</h1>
 				</div>
 				<Switch>
 					{routes.map(({ Component, key, path }) => (
