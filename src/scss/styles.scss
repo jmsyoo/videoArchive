@@ -29,7 +29,7 @@ p{
   background-color: #fff;
   a{
     color:rgb(31, 32, 32);
-  font-size: 1.7rem;
+    font-size: 1.7rem;
   }  
 }
 #webTitle{
@@ -350,5 +350,27 @@ p{
       }
     }
   }
+}
+.AboutPage{
+  p{
+    font-size: 1.3rem;
+  }
+}
+.footer{
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 10vh;
+   font-size: 1.2rem;
+   background-color: black;
+   color: white;
+   text-align: center;
+   text-align: center;
+   margin: auto;
+   vertical-align: middle;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 

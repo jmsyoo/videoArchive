@@ -690,6 +690,19 @@ eval("/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertie
 
 /***/ }),
 
+/***/ "./node_modules/react-bootstrap/esm/Jumbotron.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/Jumbotron.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\n/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ \"./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ \"./node_modules/classnames/index.js\");\n/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _ThemeProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ThemeProvider */ \"./node_modules/react-bootstrap/esm/ThemeProvider.js\");\n\n\n\n\n\nvar defaultProps = {\n  fluid: false\n};\nvar Jumbotron = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.forwardRef(function (_ref, ref) {\n  var _classes;\n\n  var _ref$as = _ref.as,\n      Component = _ref$as === void 0 ? 'div' : _ref$as,\n      className = _ref.className,\n      fluid = _ref.fluid,\n      bsPrefix = _ref.bsPrefix,\n      props = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__[/* default */ \"a\"])(_ref, [\"as\", \"className\", \"fluid\", \"bsPrefix\"]);\n\n  bsPrefix = Object(_ThemeProvider__WEBPACK_IMPORTED_MODULE_4__[/* useBootstrapPrefix */ \"a\"])(bsPrefix, 'jumbotron');\n  var classes = (_classes = {}, _classes[bsPrefix] = true, _classes[bsPrefix + \"-fluid\"] = fluid, _classes);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ \"a\"])({\n    ref: ref\n  }, props, {\n    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()(className, classes)\n  }));\n});\nJumbotron.defaultProps = defaultProps;\nJumbotron.displayName = 'Jumbotron';\n/* harmony default export */ __webpack_exports__[\"a\"] = (Jumbotron);\n\n//# sourceURL=webpack:///./node_modules/react-bootstrap/esm/Jumbotron.js?");
+
+/***/ }),
+
 /***/ "./node_modules/react-bootstrap/esm/Nav.js":
 /*!*************************************************!*\
   !*** ./node_modules/react-bootstrap/esm/Nav.js ***!

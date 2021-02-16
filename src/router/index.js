@@ -40,6 +40,11 @@ const AppRouter = props => {
 					))}
 				</Switch>
 			</Container>
+			<div className="footer">
+				<span>
+					<strong>2021 </strong>School React JS Project App by James
+				</span>
+			</div>
 		</Router>
 	);
 };
