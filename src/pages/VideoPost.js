@@ -95,6 +95,9 @@ export default function VideoPost(props) {
 	};
 	return (
 		<div className={'VideoPost'}>
+			<div className={'logoDiv'}>
+				<h1 className={'pageTitle'}>{props.page}</h1>
+			</div>
 			<div className={'showVideoDiv'}>
 				<Card>
 					<Card.Header>

@@ -6,10 +6,10 @@ export default function About(props) {
 		<div className="AboutPage">
 			<Jumbotron fluid>
 				<Container>
-					<h1>Personal Youtube Arhive</h1>
+					<h1>Personal Youtube Archive</h1>
 					<p>
-						This is a app enables user archives videos and add comments and
-						rating.
+						This is an app which enables users to archives videos and add
+						comments and rating.
 					</p>
 				</Container>
 			</Jumbotron>

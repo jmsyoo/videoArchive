@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import VideoList from '../components/VideoList';
+import PageTitle from '../components/PageTitle';
 import { InputGroup, Button } from 'react-bootstrap';
 
 export default function App(props) {
@@ -61,6 +62,7 @@ export default function App(props) {
 
 	return (
 		<>
+			<PageTitle page={props.page} />
 			<div className={'search'}>
 				<form onSubmit={handleSubmit}>
 					<InputGroup>

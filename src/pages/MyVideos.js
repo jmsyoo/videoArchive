@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PageTitle from '../components/PageTitle';
 import { Link } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import { Row, Col, Button, Card, Badge } from 'react-bootstrap';
@@ -53,7 +54,7 @@ export default function MyVideo(props) {
 		const allCategory = '';
 
 		const textValue = e.target.innerText.replace('#', '').toLowerCase();
-		console.log(textValue);
+		// console.log(textValue);
 		if (textValue == 'all') {
 			await setCategory(allCategory);
 		} else {
@@ -62,6 +63,7 @@ export default function MyVideo(props) {
 	};
 	return (
 		<div className={'MyVideo'}>
+			<PageTitle page={props.page} />
 			<Row className="hashTagRow">
 				<Col md={6} sm={12} xs={12}>
 					<div>
@@ -90,6 +92,7 @@ export default function MyVideo(props) {
 							.map((item, index) => {
 								return (
 									<Col
+										key={item._id}
 										className={`myVideoCol ${item.category}`}
 										md={3}
 										sm={4}

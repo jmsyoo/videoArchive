@@ -22,12 +22,8 @@ const AppRouter = props => {
 	};
 	return (
 		<Router>
-			<NavBar routes={routes} />
+			<NavBar routes={routes} logo={logoImgUrl} />
 			<Container fluid className="AppPage">
-				<div className={'logoDiv'}>
-					<img src={logoImgUrl} style={{ height: '70px' }} />
-					<h1 id="webTitle"> Archive</h1>
-				</div>
 				<Switch>
 					{routes.map(({ Component, key, path }) => (
 						<Route
@@ -42,7 +38,7 @@ const AppRouter = props => {
 			</Container>
 			<div className="footer">
 				<span>
-					<strong>2021 </strong>School React JS Project App by James
+					<strong>2021 </strong>School Project React JS App by James
 				</span>
 			</div>
 		</Router>

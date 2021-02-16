@@ -17,25 +17,25 @@ body {
 p{
   font-size: 1.1rem;
 }
-
-.NavBar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 7vh;
-  font-size: 1.3rem;
-  font-weight: 600;
-  background-color: #fff;
-  a{
-    color:rgb(31, 32, 32);
-    font-size: 1.7rem;
-  }  
+.pageTitle{
+  text-align: center;
+  font-size: 3rem;
 }
-#webTitle{
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
-  font-size: 5rem;
+nav{
+  .navbar-brand{
+    font-size: 1.7rem;
+    margin-right: 2rem;
+    img{
+      width: 5rem;
+      height: 100%;
+      margin-right: 0.5rem;
+    }
+  }
+  a{
+    color: white;
+    font-size: 1.3rem;
+    margin-right: 3rem;;
+  }
 }
 @media screen and (max-width:1840px){
   input{
@@ -57,9 +57,13 @@ p{
     .card{
       .card-header{
         .videoTitle{
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           display: flex;
           flex-direction: column;
+          .badge{
+            width: 20%;
+            float: right;
+          }
         }
         .channelTitle{
           font-size: 1.1rem;
@@ -84,7 +88,9 @@ p{
       .card-header{
         .videoTitle{
           display: block;
+          font-size: 1.2rem;
           .badge{
+            width: 30%;
             float: right;
           }
         }
@@ -188,7 +194,6 @@ p{
             font-size: 1.2rem;
           }
         }
-        
         .commentFormDiv{
           padding:1rem;
           background-color: white;
@@ -244,7 +249,8 @@ p{
   padding:1rem;
   background-color: var(--backgroundColor);
   width: 100vw;
-  height: 100%;
+  // height: 100vh;
+  margin-bottom:3rem;
   .resultCol {
     margin-bottom: 2rem;
   }
@@ -266,7 +272,7 @@ p{
   .search{
     margin: auto;
     width: 100%;
-    height: 7rem;
+    height: 8vh;
     // background-color: lightsalmon;
     display: flex;
     align-items: center;
@@ -356,12 +362,38 @@ p{
     font-size: 1.3rem;
   }
 }
+.ContactPage{
+  // width: 100vw;
+  // height: 85vh;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  .contactForm{
+    width: 40%;
+    height: 100%;
+    margin:auto;
+    background-color: white;
+    .row{
+      margin-top: 10%;
+      margin-bottom: 62%;
+    }
+    form{
+      width: 100%;
+      height: 100%;
+      padding:10%;
+      .form-group{
+        width: 100%;
+      }
+      
+    }
+  }
+}
 .footer{
   position: fixed;
    left: 0;
    bottom: 0;
    width: 100%;
-   height: 10vh;
+   height: 5rem;
    font-size: 1.2rem;
    background-color: black;
    color: white;

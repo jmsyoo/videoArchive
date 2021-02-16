@@ -9,13 +9,18 @@ import MyVideo from '../pages/MyVideos';
 const routes = [
 	{
 		Component: MyVideo,
-		key: 'MyVideo',
-		path: '/myvideo'
+		key: 'My Videos',
+		path: '/myvideos'
 	},
 	{
 		Component: About,
 		key: 'About',
 		path: '/about'
+	},
+	{
+		Component: Contact,
+		key: 'Contact',
+		path: '/contact'
 	},
 	{
 		Component: VideoPost,
@@ -24,7 +29,7 @@ const routes = [
 	},
 	{
 		Component: App,
-		key: 'Search Video',
+		key: 'Search Videos',
 		path: '/'
 	}
 ];
