@@ -28,7 +28,8 @@ export default function VideoList({ videos }) {
 					id: idValue,
 					title: titleValue,
 					channelTitle: channelTitleValue,
-					description: descriptionValue
+					description: descriptionValue,
+					category: ''
 				})
 			});
 		} catch (error) {

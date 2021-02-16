@@ -1,17 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import YouTube from 'react-youtube';
-import { Row, Col, Button, Card, InputGroup } from 'react-bootstrap';
+import { Button, Card, InputGroup, Tabs, Tab, Badge } from 'react-bootstrap';
 
 export default function VideoPost(props) {
 	const [video, setVideo] = useState({});
+	const [tabKey, setTabKey] = useState('comment');
 
 	const name = useRef(null);
 	const comment = useRef(null);
 	const rating = useRef(null);
 	const videoId = useRef(null);
 	const commentId = useRef([]);
+	const category = useRef(null);
 
-	const categoryOptions = ['code', 'music', 'drama'];
+	const categoryOptions = ['code', 'music', 'drama', 'other'];
 
 	useEffect(() => {
 		(async () => {
@@ -70,12 +72,38 @@ export default function VideoPost(props) {
 			}
 		}
 	};
+	const updateVideoCategory = async e => {
+		e.preventDefault();
+		const id = props.match.params.id;
+		console.log(id);
+		try {
+			const response = await fetch(`/api/videos/${props.match.params.id}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					category: category.current.value
+				})
+			});
+			console.log(response);
+			const data = await response.json();
+			setVideo(data);
+		} catch (error) {
+			console.error(error);
+		}
+	};
 	return (
 		<div className={'VideoPost'}>
 			<div className={'showVideoDiv'}>
 				<Card>
 					<Card.Header>
-						<Card.Title>{video.title ? video.title : ''}</Card.Title>
+						<Card.Title>
+							{video.title ? video.title : ''}
+							<Badge variant={props.setBadge(video.category)}>
+								{video.category != null ? video.category : ''}
+							</Badge>
+						</Card.Title>
 					</Card.Header>
 					<Card.Body>
 						<div className={'videowrapper'}>
@@ -127,50 +155,64 @@ export default function VideoPost(props) {
 								: ''}
 						</ul>
 					</Card.Body>
-					<Card.Footer>
-						<Row>
-							<Col md={8} sm={12} xs={12}>
-								<form className={'commentForm'} onSubmit={handleSubmit}>
-									<input
-										type="text"
-										placeholder={'Enter user name'}
-										ref={name}
-									/>
-									<input
-										type="text"
-										placeholder={'Enter comment'}
-										ref={comment}
-									/>
-									<input
-										type="text"
-										placeholder={'Enter 0 ~ 5 for rating'}
-										ref={rating}
-									/>
-									<input type="text" value={video._id} ref={videoId} />
-									<InputGroup.Append>
-										<Button variant="success" type="submit">
-											Add comment
-										</Button>
-									</InputGroup.Append>
-								</form>
-							</Col>
-							<Col md={4} sm={12} xs={12}>
-								<select>
-									{(() => {
-										const arr = [];
-										for (let i = 0; i < categoryOptions.length; i++) {
-											arr.push(
-												<option value={categoryOptions[i]}>
-													{categoryOptions[i]}
-												</option>
-											);
-										}
-										return arr;
-									})()}
-								</select>
-							</Col>
-						</Row>
-					</Card.Footer>
+					<Card.Body className={'inputBody'}>
+						<Tabs
+							id="inputFormTab"
+							activeKey={tabKey}
+							onSelect={k => setTabKey(k)}
+						>
+							<Tab eventKey={'comment'} title="comment">
+								<div className="commentFormDiv">
+									<label className="formLabel">Comment Form</label>
+									<form className={'form'} onSubmit={handleSubmit}>
+										<input type="text" placeholder={'User name'} ref={name} />
+										<input type="text" placeholder={'Comment'} ref={comment} />
+										<input
+											type="text"
+											placeholder={'0 ~ 5 for rating'}
+											ref={rating}
+										/>
+										<input
+											type="text"
+											value={video._id}
+											ref={videoId}
+											className={'hide'}
+										/>
+										<InputGroup.Append>
+											<Button variant="success" type="submit">
+												Add comment
+											</Button>
+										</InputGroup.Append>
+									</form>
+								</div>
+							</Tab>
+							<Tab eventKey={'category'} title="category">
+								<div className="categoryFormDiv">
+									<label className="formLabel">Category Form</label>
+									<form className={'form'} onSubmit={updateVideoCategory}>
+										<select ref={category}>
+											{(() => {
+												const tempArr = [];
+												for (let i = 0; i < categoryOptions.length; i++) {
+													tempArr.push(
+														<option value={categoryOptions[i]}>
+															{categoryOptions[i]}
+														</option>
+													);
+												}
+												return tempArr;
+											})()}
+										</select>
+										<InputGroup.Append>
+											<Button variant="success" type="submit">
+												Update Category
+											</Button>
+										</InputGroup.Append>
+									</form>
+								</div>
+							</Tab>
+						</Tabs>
+					</Card.Body>
 				</Card>
 			</div>
 		</div>

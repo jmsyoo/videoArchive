@@ -30,33 +30,97 @@ p{
   a{
     color:rgb(31, 32, 32);
   font-size: 1.7rem;
-  }
-  
+  }  
 }
 #webTitle{
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
   font-size: 5rem;
 }
-
-.HomePage {
-
+@media screen and (max-width:1840px){
+  input{
+    width: 70%;
+  }
+}
+@media screen and (max-width:1440px){
+  input{
+    width: 70%;
+  }
+}
+@media screen and (max-width:1024px){
+  input{
+    width: 70%;
+  }
+}
+@media screen and (max-width:768px){
+  .MyVideo{
+    .card{
+      .card-header{
+        .videoTitle{
+          font-size: 1.3rem;
+          display: flex;
+          flex-direction: column;
+        }
+        .channelTitle{
+          font-size: 1.1rem;
+        }
+      }
+      .card-body{
+        .videoDescrip{
+          min-height: 10rem;
+        }
+      }  
+      .card-footer{
+        button{
+          width: 40%;
+        }
+      } 
+    }
+  }
+}
+@media screen and (max-width:425px){
+  .MyVideo{
+    .card{
+      .card-header{
+        .videoTitle{
+          display: block;
+          .badge{
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width:320px){
+  #webTitle{
+    font-size: 4rem;
+  }
+  input{
+    width: 50%;
+  }
 }
 
-.AboutPage {
-
-}
-
-.ContactPage{
-
-}
 .MyVideo {
+  .hashTagRow{
+    margin-bottom: 3rem;
+    .badge{
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+  }
   .myVideoCol{
     margin-bottom: 2rem;
   }
   .card{
+    .card-header{
+      .videoCategory{
+        float: right;
+      }
+    }
     button{
       float: right;
+      width: 30%;
     }
     .card-footer {
       .delVideoBtn{
@@ -74,14 +138,19 @@ p{
   flex-direction: column;
   padding: 3%;
   .showVideoDiv{
-    width: 65%;
-    height: 70%;
+    width: 80%;
+    height: 100%;
     .card{
+      height: 100%;
       p{
         font-size: 1.2rem;
       }
       .card-title{
         font-size: 1.5rem;
+        .badge {
+          float: right;
+          padding: 0.5rem;
+        }
       }
       .card-body{       
         ul{
@@ -108,32 +177,66 @@ p{
         .commentTitle{
           text-align: center;
         }
-        
       }
-      .card-footer{
-        .commentForm{
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          padding: 1%;
-          input{
-            margin:1%;
-            width:80%;
-            height: 3rem;
-            font-size: 1.3rem;
+      .inputBody{
+        height: 100%;
+        width: 100%;
+        // background-color: lightyellow;
+        padding:1rem;
+        .nav-tabs{
+          a{
+            font-size: 1.2rem;
           }
         }
-        button{
-          float: right;
-          // height: 70%;
-          margin-top: 5%;
-          font-size: 1.3rem;
-          vertical-align: middle;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        
+        .commentFormDiv{
+          padding:1rem;
+          background-color: white;
+          height: 18rem;
+          width: 100%;
+          .formLabel{
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin:auto;
+          }
+          form{
+            height: 100%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+          }
+          
+        }
+        .categoryFormDiv{
+          padding:1rem;
+          background-color: white;
+          height: 18rem;
+          width: 100%;
+          .formLabel{
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin:auto;
+          }
+          form{
+            height: 100%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            select{
+              height: 2.7rem;
+              font-size: 1.3rem;
+            }
+            button{
+              position: absolute;
+              bottom: 1;
+            }
+          }
+          
         }
       }
+      
     }
   }
 }
@@ -185,26 +288,7 @@ p{
           font-size: 1.3rem;
           border-radius: 0.3rem;
         }
-        @media screen and (max-width:1840px){
-          input{
-            width: 70%;
-          }
-        }
-        @media screen and (max-width:1440px){
-          input{
-            width: 70%;
-          }
-        }
-        @media screen and (max-width:1024px){
-          input{
-            width: 70%;
-          }
-        }
-        @media screen and (max-width:320px){
-          input{
-            width: 50%;
-          }
-        }
+        
         .input-group-append{
           height: 90%;
           button{

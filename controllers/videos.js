@@ -36,7 +36,6 @@ myVideoRouter.get('/', async (req, res) => {
 myVideoRouter.get('/:id', async (req, res) => {
     try {
         const foundVideo = await MyVideo.findById(req.params.id);
-        console.log(foundVideo)
         await foundVideo.execPopulate('comments')
         res
             .status(200)
@@ -63,9 +62,12 @@ myVideoRouter.delete('/:id', async (req, res) => {
 })
 
 /* Update */
-myVideoRouter.put('./id', async (req, res) => {
+myVideoRouter.put('/:id', async (req, res) => {
     try{
-        const foundVideo = await MyVideo.findByIdAndDelete(req.param.id, req.body, {new: true})
+        const foundVideo = await MyVideo.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        await foundVideo.execPopulate('comments')
+        console.log(foundVideo)
+
         res
             .status(200)
             .json(foundVideo);
