@@ -469,7 +469,6 @@ nav{
         }
         .ratingDiv{
           width: 100%;
-          background-color: lightcoral;
           .ratingInput{
             width: 80%;
           }
@@ -504,7 +503,6 @@ nav{
         }
         .ratingDiv{
           width: 100%;
-          background-color: lightcoral;
         }
       }
     }
@@ -526,6 +524,12 @@ nav{
         padding:10%;
         .form-group{
           width: 100%;
+          label{
+            font-size: 1.3rem;
+          }
+          small{
+            font-size: 1.1rem;
+          }
         }
         
       }
