@@ -124,7 +124,6 @@ nav{
       .inputBody{
         height: 100%;
         width: 100%;
-        // background-color: lightyellow;
         padding:1rem;
         .nav-tabs{
           a{
@@ -162,7 +161,7 @@ nav{
               font-size: 1.3rem;
             }
             .ratingDiv{
-              width: 70%;
+              width: 100%;
               .ratingInput{
                 width: 80%;
               }
@@ -199,8 +198,8 @@ nav{
               font-size: 1.3rem;
             }
             button{
-              position: absolute;
-              bottom: 1;
+              // position: absolute;
+              // bottom: 1;
             }
           }
           
@@ -362,6 +361,7 @@ nav{
    display: flex;
    justify-content: center;
    align-items: center;
+   z-index: 0;
 }
 
 @media screen and (max-width:1840px){
@@ -408,10 +408,37 @@ nav{
           width: 20%;
         }
       }
+      .channelTitle{
+        font-size: 1.1rem;
+      }
+    }
+    .card{
+      .videoDescrip{
+        min-height: 65px;
+      }
+      .card-footer{
+        button{
+          width: 40%;
+        }
+      }
     }
   }
 }
 @media screen and (max-width:425px){
+  .search{
+    .input-group{
+      width: 70%;
+      height: 4.5rem;
+      #q{
+        height: 90%;
+        width: 70%;
+      }
+      button{
+        height: 100%;
+      }
+
+    }
+  }
   .ContactPage{
     width: 100%;
     .contactForm{
@@ -433,13 +460,54 @@ nav{
       }
     }
   }
+  .VideoPost{
+    .commentFormDiv{
+      form{
+        background-color: white;
+        .commentInput{
+          width: 100%;
+        }
+        .ratingDiv{
+          width: 100%;
+          background-color: lightcoral;
+          .ratingInput{
+            width: 80%;
+          }
+          button{
+            width: 10%;
+          }
+        }
+      }
+    }
+    
+    .input-group{
+      width: 50%;
+    }
+  }
 }
- @media screen and (max-width:320px){
+ @media screen and (min-width:320px){
   #webTitle{
     font-size: 4rem;
   }
-  input{
-    width: 50%;
+  .search{
+    #q{
+      width: 70%;
+    }
+  }
+  .VideoPost{
+    .commentFormDiv{
+      form{
+        width: 100%;
+        background-color: white;
+        .commentInput{
+          width: 100%;
+        }
+        .ratingDiv{
+          width: 100%;
+          background-color: lightcoral;
+        }
+      }
+    }
   }
   .ContactPage{
     width: 100%;

@@ -40,7 +40,7 @@ export default function MyVideo(props) {
 	};
 	const checkWordsLength = (words, type) => {
 		let reducedWords = '';
-		const titleLength = 18;
+		const titleLength = 15;
 		const descripLength = 70;
 
 		if (type == 'title') {
