@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import { Button, Card, InputGroup, Tabs, Tab, Badge } from 'react-bootstrap';
 
 export default function VideoPost(props) {
 	const [video, setVideo] = useState({});
 	const [tabKey, setTabKey] = useState('comment');
+	const [rate, setRate] = useState(0);
 
-	const name = useRef(null);
+	const name = useRef(null); // login session
 	const comment = useRef(null);
 	const rating = useRef(null);
 	const videoId = useRef(null);
@@ -93,6 +95,21 @@ export default function VideoPost(props) {
 			console.error(error);
 		}
 	};
+
+	const increment = () => {
+		if (rate > 4) {
+			setRate(5);
+		} else {
+			setRate(rate + 1);
+		}
+	};
+	const decrement = () => {
+		if (rate < 1) {
+			setRate(0);
+		} else {
+			setRate(rate - 1);
+		}
+	};
 	return (
 		<div className={'VideoPost'}>
 			<div className={'logoDiv'}>
@@ -168,13 +185,42 @@ export default function VideoPost(props) {
 								<div className="commentFormDiv">
 									<label className="formLabel">Comment Form</label>
 									<form className={'form'} onSubmit={handleSubmit}>
-										<input type="text" placeholder={'User name'} ref={name} />
-										<input type="text" placeholder={'Comment'} ref={comment} />
 										<input
+											className="commentInput"
 											type="text"
-											placeholder={'0 ~ 5 for rating'}
-											ref={rating}
+											placeholder={'Username'}
+											ref={name}
 										/>
+										<input
+											className="commentInput"
+											type="text"
+											placeholder={'Comment'}
+											ref={comment}
+										/>
+										<div className="ratingDiv">
+											<button
+												className="rateBtn"
+												type="button"
+												onClick={decrement}
+											>
+												<i class="fas fa-minus"></i>
+											</button>
+											<input
+												className={'ratingInput'}
+												type="text"
+												placeholder={'0 ~ 5 for rating'}
+												ref={rating}
+												value={rate}
+											/>
+											<button
+												className="rateBtn"
+												type="button"
+												onClick={increment}
+											>
+												<i class="fas fa-plus"></i>
+											</button>
+										</div>
+
 										<input
 											type="text"
 											value={video._id}
@@ -185,6 +231,9 @@ export default function VideoPost(props) {
 											<Button variant="success" type="submit">
 												Add comment
 											</Button>
+											<Link className={'backTolistLink'} to={`/myvideos`}>
+												Go back to my video list
+											</Link>
 										</InputGroup.Append>
 									</form>
 								</div>

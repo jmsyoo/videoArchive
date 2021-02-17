@@ -129,11 +129,21 @@ nav{
         .nav-tabs{
           a{
             font-size: 1.2rem;
+            color: black;
           }
         }
+        .input-group-append{
+          .backTolistLink{
+            float: right;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-left: 2rem;
+          }
+        }
+        
         .commentFormDiv{
           padding:1rem;
-          background-color: white;
+          // background-color: white;
           height: 18rem;
           width: 100%;
           .formLabel{
@@ -141,18 +151,35 @@ nav{
             font-weight: 500;
             margin:auto;
           }
-          form{
+          .form{
+            width: 100%;
             height: 100%;
-            width: 50%;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-evenly;
+            input{
+              height: 3rem;
+              font-size: 1.3rem;
+            }
+            .ratingDiv{
+              width: 70%;
+              .ratingInput{
+                width: 80%;
+              }
+              button{
+                width: 10%;
+                height: 3rem;
+                font-size: 1.3rem;
+                border: none;
+              }
+            }
+            
           }
-          
+   
         }
         .categoryFormDiv{
           padding:1rem;
-          background-color: white;
+          // background-color: white;
           height: 18rem;
           width: 100%;
           .formLabel{
@@ -160,6 +187,7 @@ nav{
             font-weight: 500;
             margin:auto;
           }
+          
           form{
             height: 100%;
             width: 50%;
