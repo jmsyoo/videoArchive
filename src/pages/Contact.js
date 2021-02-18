@@ -35,34 +35,31 @@ export default function Contact(props) {
 		<div className="ContactPage">
 			<PageTitle page={props.page} />
 			<div className="contactForm">
-				<Row>
-					<Col lg={12} md={12} sm={12} xs={12}>
-						<Form onSubmit={handleSubmit}>
-							<Form.Group>
-								<Form.Label>Email address</Form.Label>
-								<Form.Control
-									type="email"
-									placeholder="Enter email"
-									ref={email}
-								/>
-								<Form.Text className="text-muted">
-									We'll never share your email with anyone else.
-								</Form.Text>
-							</Form.Group>
+				<Form onSubmit={handleSubmit}>
+					<Form.Group>
+						<Form.Label>Email address</Form.Label>
+						<Form.Control type="email" placeholder="Enter email" ref={email} />
+						<Form.Text className="text-muted">
+							We'll never share your email with anyone else.
+						</Form.Text>
+					</Form.Group>
 
-							<Form.Group>
-								<Form.Label>Message</Form.Label>
-								<Form.Control as="textarea" rows={3} ref={message} />
-							</Form.Group>
-							<Button variant="primary" type="submit">
-								Submit
-							</Button>
-						</Form>
-						<h2 className="confirmMessage">
-							{confirm.isSubmited ? confirm.message : ''}
-						</h2>
+					<Form.Group>
+						<Form.Label>Message</Form.Label>
+						<Form.Control as="textarea" rows={3} ref={message} />
+					</Form.Group>
+					<Button variant="primary" type="submit">
+						Submit
+					</Button>
+				</Form>
+				<h2 className="confirmMessage">
+					{confirm.isSubmited ? confirm.message : ''}
+				</h2>
+				{/* <Row>
+					<Col lg={12} md={12} sm={12} xs={12}>
+						
 					</Col>
-				</Row>
+				</Row> */}
 			</div>
 		</div>
 	);
