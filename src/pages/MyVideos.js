@@ -71,7 +71,7 @@ export default function MyVideo(props) {
 	};
 	const renderTooltip = props => (
 		<Tooltip id="button-tooltip" {...props}>
-			Click hashtag to filter video
+			Click #hashtag to filter videos
 		</Tooltip>
 	);
 

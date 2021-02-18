@@ -55,11 +55,6 @@ export default function Contact(props) {
 				<h2 className="confirmMessage">
 					{confirm.isSubmited ? confirm.message : ''}
 				</h2>
-				{/* <Row>
-					<Col lg={12} md={12} sm={12} xs={12}>
-						
-					</Col>
-				</Row> */}
 			</div>
 		</div>
 	);

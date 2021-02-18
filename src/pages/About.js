@@ -8,8 +8,9 @@ export default function About(props) {
 				<Container>
 					<h1>Personal Youtube Archive</h1>
 					<p>
-						This is an app which enables users to archives videos and add
-						comments and rating.
+						This app will help the users to create their own Youtube video
+						collection. The videos can be categolized and filtered. Users can
+						add ratings and comments.
 					</p>
 				</Container>
 			</Jumbotron>
