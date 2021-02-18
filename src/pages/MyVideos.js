@@ -2,7 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import PageTitle from '../components/PageTitle';
 import { Link } from 'react-router-dom';
 import YouTube from 'react-youtube';
-import { Row, Col, Button, Card, Badge } from 'react-bootstrap';
+import {
+	Row,
+	Col,
+	Button,
+	Card,
+	Badge,
+	OverlayTrigger,
+	Tooltip
+} from 'react-bootstrap';
 
 export default function MyVideo(props) {
 	const [videos, setVideo] = useState([]);
@@ -61,27 +69,47 @@ export default function MyVideo(props) {
 			setCategory(textValue);
 		}
 	};
+	const renderTooltip = props => (
+		<Tooltip id="button-tooltip" {...props}>
+			Click hashtag to filter video
+		</Tooltip>
+	);
+
 	return (
 		<div className={'MyVideo'}>
 			<PageTitle page={props.page} />
 			<Row className="hashTagRow">
 				<Col md={6} sm={12} xs={12}>
 					<div>
-						<Badge pill variant="primary">
-							<span onClick={handleCategoryFilter}>#Drama</span>
-						</Badge>{' '}
-						<Badge pill variant="warning">
-							<span onClick={handleCategoryFilter}>#Music</span>
-						</Badge>{' '}
-						<Badge pill variant="info">
-							<span onClick={handleCategoryFilter}>#Code</span>
-						</Badge>{' '}
-						<Badge pill variant="success">
-							<span onClick={handleCategoryFilter}>#Other</span>
-						</Badge>{' '}
-						<Badge pill variant="dark">
-							<span onClick={handleCategoryFilter}>#All</span>
-						</Badge>
+						{(() => {
+							const upperCase = word => {
+								const cap = word.split('').reduce((acc, item, index) => {
+									if (index == 0) {
+										item = item.toUpperCase();
+									}
+									return acc + item;
+								}, '');
+								return cap;
+							};
+
+							const tempArr = [];
+							for (let item in props.badge) {
+								tempArr.push(
+									<Badge key={item} pill variant={props.badge[item]}>
+										<OverlayTrigger
+											placement="bottom"
+											delay={{ show: 250, hide: 400 }}
+											overlay={renderTooltip}
+										>
+											<span onClick={handleCategoryFilter}>{`#${upperCase(
+												item
+											)}`}</span>
+										</OverlayTrigger>
+									</Badge>
+								);
+							}
+							return tempArr;
+						})()}
 					</div>
 				</Col>
 			</Row>

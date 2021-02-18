@@ -255,7 +255,7 @@ nav{
         input{
           height: 90%;
           border: 1px solid darkgrey;
-          font-size: 1.3rem;
+          font-size: 2rem;
           border-radius: 0.3rem;
         }
         
@@ -494,6 +494,10 @@ nav{
     }
   }
   .VideoPost{
+    .showVideoDiv{
+      width: 100%;
+      height: 100%;
+    }
     .commentFormDiv{
       form{
         width: 100%;
