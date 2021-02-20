@@ -40,7 +40,6 @@ export default function VideoList({ videos }) {
 		const index = e.currentTarget.value;
 		archived.current[index].innerText = 'Added to my archive';
 	};
-
 	const checkWordsLength = (words, type) => {
 		let reducedWords = '';
 		const titleLength = 21;

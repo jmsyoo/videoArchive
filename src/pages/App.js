@@ -14,6 +14,7 @@ export default function App(props) {
 	const [query, updateQuery] = useState({
 		q: '', // Search
 		part: 'snippet',
+		chart: 'mostPopular',
 		key: apiKeys.opt1,
 		type: 'video',
 		maxResults: 8
@@ -37,6 +38,7 @@ export default function App(props) {
 					updateQuery({
 						q: '', // Search
 						part: 'snippet',
+						chart: 'mostPopular',
 						key: apiKeys.opt1,
 						type: 'video',
 						maxResults: 8
