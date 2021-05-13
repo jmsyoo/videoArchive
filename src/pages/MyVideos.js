@@ -59,7 +59,7 @@ export default function MyVideo(props) {
 		return reducedWords;
 	};
 	const handleCategoryFilter = async e => {
-		const allCategory 
+		const allCategory = '';
 
 		const textValue = e.target.innerText.replace('#', '').toLowerCase();
 		// console.log(textValue);
