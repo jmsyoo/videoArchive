@@ -28,7 +28,7 @@ export default function MyVideo(props) {
 				console.error(error);
 			}
 		})();
-	}, [videos]);
+	}, [props.tweets]);
 
 	const handleDelete = async e => {
 		const index = e.currentTarget.id.replace('delVideoBtn', '');
@@ -59,7 +59,7 @@ export default function MyVideo(props) {
 		return reducedWords;
 	};
 	const handleCategoryFilter = async e => {
-		const allCategory = '';
+		const allCategory 
 
 		const textValue = e.target.innerText.replace('#', '').toLowerCase();
 		// console.log(textValue);

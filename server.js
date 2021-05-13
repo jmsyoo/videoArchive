@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
+const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 
@@ -22,6 +23,7 @@ if (process.env.NODE_ENV !== 'development'){
   app.use(express.static('public'))
 }
 
+app.use(cors());
 /* Controller Goes Here Remove the tes*/
 app.use('/api/videos', require('./controllers/videos'))
 app.use('/api/comments', require('./controllers/comments'))
